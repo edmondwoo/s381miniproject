@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "description": "381F project",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "cookie-session": "latest",
+        "express": "*",
+        "ejs": "*",
+        "body-parser": "*",
+        "express-session": "*",
+        "mongodb": "^2.2.33",
+        "async": "~0.2.8",
+        "socket.io": "~0.9.14",
+        "formidable": "latest"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {
+        "start": "node server"
+    }
+}

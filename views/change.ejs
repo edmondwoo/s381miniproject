@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="css/new.css">
+<div class="container">  
+  <form id="contact" action="/change" method="post" enctype="multipart/form-data">
+    <h3>Change The Restaurant</h3>
+    <%r = r[0]%>
+    <fieldset>
+      <input placeholder="Restaurant Id" type="text" name="id" tabindex="1" value="<%=r.restaurant_id%>" autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Name" type="text" name="name" tabindex="1" value="<%=r.name%>">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Borough" type="text" name="borough" tabindex="2" value="<%=r.borough%>">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Cuisine" type="text" name="cuisine" tabindex="2" value="<%=r.cuisine%>">
+    </fieldset>
+    <fieldset>
+      <input placeholder="street" type="text" name="street" tabindex="4" value="<%=r.address!=null? r.address.street : ''%>" >
+    </fieldset>
+    <fieldset>
+      <input placeholder="building" type="text" name="building" tabindex="4" value="<%=r.address!=null?r.address.building : ''%>">
+    </fieldset>
+    <fieldset>
+      <input placeholder="zipcode" type="text" name="zipcode" tabindex="4" value="<%=r.address!=null?r.address.zipcode : ''%>">
+    </fieldset>
+    <fieldset>
+      <input placeholder="GPS Coordinates (lon.)" name="lon" type="text" tabindex="4" value="<%=r.address!=null?r.address.coord[0] : ''%>">
+    </fieldset>
+    <fieldset>
+      <input placeholder="GPS Coordinates (lat.)" name="lat" type="text" tabindex="4" value="<%=r.address!=null?r.address.coord[1] : ''%>">
+    </fieldset>
+    <fieldset>
+      Photo: <input name="filetoupload" type="file">
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    <input type="hidden" name="_id" value="<%=r._id%>">
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="css/new.css">
+<div class="container">  
+  <form id="contact" action="/rate?_id=<%=_id%>" method="post">
+    <h3>Create New Restaurant</h3>
+    <fieldset>
+      <input placeholder="Rate(1-10)" type="number" min="1" max="10" name="rate" autofocus>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div>

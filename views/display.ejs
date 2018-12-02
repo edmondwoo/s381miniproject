@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script>
+        function goBack() {window.history.back();}
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1><%=r.name%></span></h1>
+      <% if(r.photo != null){%>
+        <img src="data:<%=r.photomimetype%>;base64, <%=r.photo%>"><br>
+      <% } %>
+      <label>Borough: </label><%=r.borough%></p>
+      <label>Cuisine: </label><%=r.cuisine%></p>
+      <label>Street: </label><%=r.address!=null?r.address.street:''%></p>
+      <label>Building: </label><%=r.address!=null?r.address.building:''%></p>
+      <label>Zipcode: </label><%=r.address!=null?r.address.zipcode:''%></p>
+      <label>GPS: </label>[<%=r.address!=null?r.address.coord:','%>]</p>
+      <label>Rating:
+      <%if(r.grades!=null){r.grades.forEach(function(g){
+          %>
+          
+          <%=JSON.stringify(g)%>
+          
+          <%
+      });}%>
+      
+      
+      
+      
+      </label></p>
+      <%if(r.address != null){%>
+        <%if(r.address.coord != null){%>
+        <a href="/gmap?lat=<%=r.address.coord[0]%>&lon=<%=r.address.coord[1]%>&zoom=20">google map</a><br>
+        <% } %>
+      <% } %>
+      <a href="/rate?_id=<%=r._id%>">
+          <button type="button" class="btn btn-success">Rate</button>
+      </a>
+      <a href="/change?_id=<%=r._id%>">
+          <button type="button" class="btn btn-success">Edit</button>
+      </a>
+      <a href="/remove?_id=<%=r._id%>">
+          <button type="button" class="btn btn-success">Delete</button>
+      </a>
+      <button type="button" class="btn btn-success" onclick="goBack()">Go Back</button>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
