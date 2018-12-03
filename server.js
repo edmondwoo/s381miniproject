@@ -146,7 +146,7 @@ app.post('/rate',function(req,res){
 					var new_v = {};
 					new_v['grades'] = grades;
 					updateRestaurant(db,criteria,new_v,function(r){
-						s.render('rated.ejs',{_id:req.query._id,rate:true});
+						res.render('rated.ejs',{_id:req.query._id,rate:true});
 					});
 				}else{
 					var grades = r[0].grades;
